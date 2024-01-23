@@ -1,0 +1,53 @@
+body {
+    width: 400px;
+}
+
+.title {
+    font-size: xx-large;
+    font-weight: 800;
+    color: rgb(242, 113, 37);
+}
+
+.mainBody {
+    margin: 10px 10px ;
+}
+
+.footer, .title {
+    text-align: center;
+}
+
+.footer {
+    background-color: black;
+}
+
+.footer div {
+    color: white;
+    padding: 10px;
+}
+
+.footer p {
+    margin: 5px;
+}
+
+.footer a {
+    color: rgb(240, 111, 27);
+}
+
+.input-group .saveBtn:focus{
+    background-color: rgb(242, 112, 27)
+}
+
+.input-group .saveBtn:hover{
+    background-color: white;
+    border-color: rgb(242, 112, 27);
+    color: rgb(242, 112, 27);
+}
+
+.input-group .saveBtn:active{
+    background-color: rgb(242, 112, 27);
+}
+
+.input-group .saveBtn{
+    background-color: rgb(242, 112, 27);
+    border-color: white;
+}
