@@ -1,0 +1,23 @@
+{
+    "manifest_version": "3",
+    "name": "GPT_Next",
+    "version": "1.0",
+    "description": "Dit me FPT",
+    "action": {
+		"default_popup": "./popup/popup.html"
+	},
+    "permissions": [
+        "storage"
+    ],
+    "content_scripts": [
+		{
+			"matches": [
+				"*://fu-edunext.fpt.edu.vn/course/activity/question?id=*"
+			],
+			"js": [
+				"./content/auto_edunext.js"
+			]
+			//,"world":"MAIN"
+		}
+    ]
+}
