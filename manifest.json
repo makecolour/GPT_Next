@@ -1,5 +1,5 @@
 {
-    "manifest_version": "3",
+    "manifest_version": 3,
     "name": "GPT_Next",
     "version": "1.0",
     "description": "Dit me FPT",
@@ -7,7 +7,11 @@
 		"default_popup": "./popup/popup.html"
 	},
     "permissions": [
-        "storage"
+        "storage",
+		"contextMenus",
+		"declarativeContent",
+        "activeTab",
+		"tabs"
     ],
     "content_scripts": [
 		{
