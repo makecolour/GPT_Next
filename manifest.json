@@ -19,7 +19,9 @@
 				"*://fu-edunext.fpt.edu.vn/course/activity/question?id=*"
 			],
 			"js": [
+				"./utils/storage.js",
 				"./content/auto_edunext.js"
+				
 			]
 			//,"world":"MAIN"
 		}
