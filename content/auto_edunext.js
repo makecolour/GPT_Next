@@ -96,7 +96,7 @@ main().then(response => {
     navigator.clipboard.writeText(response.choices[0].message.content);
     ans.focus();
     ans.select();
-    ans.value = response.choices[0].message.content;
+    ans.value = "Successfully copied the answer, paste it here!!";
     //ans.value = "Lorem ipsum dolor sit amet, consectetur"
   }
 });
