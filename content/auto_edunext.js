@@ -57,13 +57,12 @@ const main = async () => {
 
 main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
-  
   ans.addEventListener("click", function (e) {e.preventDefault();});
   if (response && response.choices && response.choices.length > 0) {
     navigator.clipboard.writeText(response.choices[0].message.content.toString());
     ans.focus();
     ans.select();
-    ans.value = response.choices[0].message.content.toString();
+    ans.value = "Successfully fetched answer, click here and paste it!";
     //ans.value = "Lorem ipsum dolor sit amet, consectetur"
   }
 });
