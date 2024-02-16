@@ -55,7 +55,7 @@ async function promptChatGPT(prompt, api, model) {
             content: prompt
           }
         ],
-        max_tokens: 2000, // Maximum number of tokens (words) the model should return
+        max_tokens: 699, // Maximum number of tokens (words) the model should return
         temperature: 0.8, // Controls the randomness of the output
         //stop: '\n', // Stops generation at a specific token
       })
@@ -67,12 +67,12 @@ async function promptChatGPT(prompt, api, model) {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
+          'Authorization': `Bearer ${api}`
       },
       body: JSON.stringify({
           model: modelName,
           prompt: prompt,
-          max_tokens: 2000, // Adjust as needed
+          max_tokens: 699, // Adjust as needed
           temperature: 0.8, // Adjust as needed
           n: 1 // Number of completions to generate
       })
@@ -94,12 +94,19 @@ const main = async () => {
   const api = await getFromStorage('API_KEY', '');
   const prompt = await getTxt();
   console.log(prompt);
+
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   ans.addEventListener("click", function (e) { e.preventDefault(); });
   ans.focus();
   ans.select();
   ans.value = "Please wait for the API to fetch the answer.";
   setToStorage('RESPONSE', ans.value)
+
+  const submit = document.getElementsByClassName("css-1n61s5c")[0]
+  submit.addEventListener("click", function (e) {
+    setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+  });
+
   var response;
   for (let i = 0; i < models.length; i++) {
     response = await promptChatGPT(prompt, api, models[i]);
@@ -115,12 +122,12 @@ main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   ans.addEventListener("click", function (e) { e.preventDefault(); });
   if (response && response.choices && response.choices.length > 0) {
-    navigator.clipboard.writeText(response.choices[0].message.content);
-    setToStorage('RESPONSE', response.choices[0].message.content)
+    const ans = response.choices[0].message.content.toString().slice(0, 699);
+    navigator.clipboard.writeText(ans);
+    setToStorage('RESPONSE', ans)
     ans.focus();
     ans.select();
     ans.value = "Successfully copied the answer, paste it here!!";
-    //ans.value = "Lorem ipsum dolor sit amet, consectetur"
   }
 });
 
