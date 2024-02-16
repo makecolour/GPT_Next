@@ -59,9 +59,9 @@ async function promptChatGPT(prompt, api, model) {
           content: prompt
         }
       ],
-      max_tokens: 300, // Maximum number of tokens (words) the model should return
+      max_tokens: 2000, // Maximum number of tokens (words) the model should return
       temperature: 0.8, // Controls the randomness of the output
-      stop: '\n', // Stops generation at a specific token
+      //stop: '\n', // Stops generation at a specific token
     })
   };
   console.log(requestOptions)
@@ -93,10 +93,10 @@ main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   ans.addEventListener("click", function (e) { e.preventDefault(); });
   if (response && response.choices && response.choices.length > 0) {
-    navigator.clipboard.writeText(response.choices[0].message.content.toString());
+    navigator.clipboard.writeText(response.choices[0].message.content);
     ans.focus();
     ans.select();
-    ans.value = "Successfully fetched answer, click here and paste it!";
+    ans.value = response.choices[0].message.content;
     //ans.value = "Lorem ipsum dolor sit amet, consectetur"
   }
 });
