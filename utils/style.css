@@ -3,25 +3,31 @@ body {
 }
 
 .title {
-    font-size: xx-large;
+    font-size: 45px;
     font-weight: 800;
     color: rgb(242, 113, 37);
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 0px;
 }
 
-.title .above .name{
-    margin: auto;
-    padding-left: 2.4em;
+.title img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 150px;
 }
-
 .above {
     display: flex;
 
 }
 
 .below img{
-    margin: 0 25%;
+    text-align: center;
+    width: 150px;  
 }
 
 .settingBtn {
