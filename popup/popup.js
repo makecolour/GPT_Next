@@ -2,6 +2,7 @@ const key = document.getElementById("key");
 const save = document.getElementById("save");
 const response = document.getElementById("floatingTextarea");
 const copy = document.getElementById("copy");
+var clipboard;
 
 save.addEventListener("click", ()=>{
     const api = key.value;

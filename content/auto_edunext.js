@@ -95,6 +95,7 @@ const main = async () => {
   const prompt = await getTxt();
   console.log(prompt);
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
+  ans.addEventListener("click", function (e) { e.preventDefault(); });
   ans.focus();
   ans.select();
   ans.value = "Please wait for the API to fetch the answer.";
