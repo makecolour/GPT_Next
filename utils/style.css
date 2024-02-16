@@ -7,7 +7,25 @@ body {
     font-weight: 800;
     color: rgb(242, 113, 37);
     display: flex;
-    text-align: center;
+    flex-direction: column;
+}
+
+.title .above .name{
+    margin: auto;
+    padding-left: 2.4em;
+}
+
+.above {
+    display: flex;
+
+}
+
+.below img{
+    margin: 0 25%;
+}
+
+.settingBtn {
+    margin-right: 10px;
 }
 
 .mainBody {
