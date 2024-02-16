@@ -51,3 +51,30 @@ body {
     background-color: rgb(242, 112, 27);
     border-color: white;
 }
+
+.form-floating .copy{
+    width: 100%;
+}
+
+.form-floating .copy:focus{
+    background-color: rgb(242, 112, 27)
+}
+
+.form-floating .copy:hover{
+    background-color: white;
+    border-color: rgb(242, 112, 27);
+    color: rgb(242, 112, 27);
+}
+
+.form-floating .copy:active{
+    background-color: rgb(242, 112, 27);
+}
+
+.form-floating .copy{
+    background-color: rgb(242, 112, 27);
+    border-color: white;
+}
+
+.form-floating {
+    margin: 0.5em 0;
+}
