@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "GPT_Next",
-    "version": "1.0",
+    "version": "0.1",
     "description": "Dit me FPT",
     "action": {
 		"default_popup": "./popup/popup.html"
