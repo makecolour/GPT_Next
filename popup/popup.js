@@ -2,6 +2,7 @@ const key = document.getElementById("key");
 const save = document.getElementById("save");
 const response = document.getElementById("floatingTextarea");
 const copy = document.getElementById("copy");
+const ai = document.getElementsByClassName("openai")[0];
 var clipboard;
 
 save.addEventListener("click", ()=>{
@@ -14,6 +15,10 @@ save.addEventListener("click", ()=>{
 copy.addEventListener("click", ()=>{
     navigator.clipboard.writeText(response.value);
     alert("Copied to clipboard");
+});
+
+ai.addEventListener("click", ()=>{
+    window.open("https://platform.openai.com/api-keys", '_blank').focus()
 });
 
 document.addEventListener("DOMContentLoaded", async ()=>{
