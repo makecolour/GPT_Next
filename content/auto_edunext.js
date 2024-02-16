@@ -67,7 +67,7 @@ async function promptChatGPT(prompt, api, model) {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
+          'Authorization': `Bearer ${api}`
       },
       body: JSON.stringify({
           model: modelName,
