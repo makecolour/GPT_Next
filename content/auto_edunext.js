@@ -1,8 +1,7 @@
-async function getTxt(){
+var content;
+async function getTxt() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const question = document.getElementsByClassName("styled");
-      const querry = question[0].innerText.toString().replace(/[\r\n]/gm, ' ');
       for(let i = 0; i < document.getElementsByClassName("css-1id89ip").length;i++)
       {
         if(document.getElementsByClassName("css-1id89ip")[i].innerText.toUpperCase().includes("DISCUSS"))
@@ -11,12 +10,33 @@ async function getTxt(){
           document.getElementsByClassName("css-1id89ip")[i].click();
         }
       }
-      resolve(querry);
+
+      const question = document.getElementsByClassName("styled");
+      const text = question[0].innerText.toString().replace(/[\r\n]/gm, ' ');
+      const images = question[0].querySelectorAll("img");
+
+      if (text && text.trim() !== "" && images.length > 0) {
+        const imageData = Array.from(images).map(img => {
+          return { type: "image_url", image_url: { url: img.src } };
+        });
+
+        resolve([{ type: "text", text: text }, ...imageData]);
+      } else if (text && text.trim() !== "") {
+        resolve([{ type: "text", text: text }]);
+      } else if (images.length > 0) {
+        const imageData = Array.from(images).map(img => {
+          return { type: "image_url", image_url: { url: img.src } };
+        });
+
+        resolve([{ type: "text", text: "Solve this: " }, ...imageData]);
+      } else {
+        resolve(null); // Resolve with null if no text or images
+      }
     }, 700);
   });
 }
 
-async function promptChatGPT(promptText, api) {
+async function promptChatGPT(prompt, api) {
   const modelName = 'gpt-3.5-turbo'; // Specify the model name here
   
   const requestOptions = {
@@ -30,7 +50,7 @@ async function promptChatGPT(promptText, api) {
       messages: [
         {
           role:"user",
-          content: promptText
+          content: prompt
         }
       ],
       max_tokens: 300, // Maximum number of tokens (words) the model should return
@@ -38,7 +58,7 @@ async function promptChatGPT(promptText, api) {
       stop: '\n', // Stops generation at a specific token
     })
   };
-  
+  console.log(requestOptions)
   return fetch('https://api.openai.com/v1/chat/completions', requestOptions)
     .then(response => response.json())
     .catch(error => {
@@ -51,7 +71,9 @@ async function promptChatGPT(promptText, api) {
 const main = async () => {
   const api = await getFromStorage('API_KEY', '');
   const prompt = await getTxt();
+  console.log(prompt);
   const response = await promptChatGPT(prompt, api);
+  console.log(response);
   return response;
 }
 
