@@ -94,6 +94,11 @@ const main = async () => {
   const api = await getFromStorage('API_KEY', '');
   const prompt = await getTxt();
   console.log(prompt);
+  const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
+  ans.focus();
+  ans.select();
+  ans.value = "Please wait for the API to fetch the answer.";
+  setToStorage('RESPONSE', ans.value)
   var response;
   for (let i = 0; i < models.length; i++) {
     response = await promptChatGPT(prompt, api, models[i]);
@@ -110,6 +115,7 @@ main().then(response => {
   ans.addEventListener("click", function (e) { e.preventDefault(); });
   if (response && response.choices && response.choices.length > 0) {
     navigator.clipboard.writeText(response.choices[0].message.content);
+    setToStorage('RESPONSE', response.choices[0].message.content)
     ans.focus();
     ans.select();
     ans.value = "Successfully copied the answer, paste it here!!";
