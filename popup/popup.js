@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
 })
 
 ask.addEventListener("click", async() =>{
+    response.value = "Please wait for the API to fetch the answer.";
     const prompt = question.value;
     const api = await getFromStorage('API_KEY');
     var ans;
