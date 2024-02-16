@@ -6,6 +6,8 @@ body {
     font-size: xx-large;
     font-weight: 800;
     color: rgb(242, 113, 37);
+    display: flex;
+    text-align: center;
 }
 
 .mainBody {
