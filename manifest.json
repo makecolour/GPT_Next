@@ -22,7 +22,8 @@
 				"./utils/storage.js",
 				"./content/auto_edunext.js"
 				
-			]
+			],
+			"run_at": "document_end"
 			//,"world":"MAIN"
 		}
     ]

@@ -57,50 +57,15 @@ const main = async () => {
 
 main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
+  
   ans.addEventListener("click", function (e) {e.preventDefault();});
   if (response && response.choices && response.choices.length > 0) {
     navigator.clipboard.writeText(response.choices[0].message.content.toString());
     ans.focus();
     ans.select();
-    const inputString = response.choices[0].message.content.toString();
-    //simulateTyping(inputString, ans);
     ans.value = response.choices[0].message.content.toString();
+    //ans.value = "Lorem ipsum dolor sit amet, consectetur"
   }
 });
 
-function simulateTyping(inputString, targetElement) {
-  // Set focus on the target element
-  targetElement.focus();
 
-  // Iterate through each character of the input string
-  for (let i = 0; i < inputString.length; i++) {
-    // Get the character at the current index
-    const char = inputString.charAt(i);
-
-    // Create a keydown event for the current character
-    const keyDownEvent = new KeyboardEvent('keydown', {
-      key: char,
-      keyCode: char.charCodeAt(0),
-      code: `Key${char.toUpperCase()}`,
-      which: char.charCodeAt(0),
-      bubbles: true,
-      cancelable: true,
-    });
-
-    // Dispatch the keydown event
-    targetElement.dispatchEvent(keyDownEvent);
-
-    // Create a keyup event for the current character
-    const keyUpEvent = new KeyboardEvent('keyup', {
-      key: char,
-      keyCode: char.charCodeAt(0),
-      code: `Key${char.toUpperCase()}`,
-      which: char.charCodeAt(0),
-      bubbles: true,
-      cancelable: true,
-    });
-
-    // Dispatch the keyup event
-    targetElement.dispatchEvent(keyUpEvent);
-  }
-}
