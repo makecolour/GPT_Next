@@ -55,7 +55,7 @@ async function promptChatGPT(prompt, api, model) {
             content: prompt
           }
         ],
-        max_tokens: 699, // Maximum number of tokens (words) the model should return
+        max_tokens: 1000, // Maximum number of tokens (words) the model should return
         temperature: 0.8, // Controls the randomness of the output
         //stop: '\n', // Stops generation at a specific token
       })
@@ -72,7 +72,7 @@ async function promptChatGPT(prompt, api, model) {
       body: JSON.stringify({
           model: modelName,
           prompt: prompt,
-          max_tokens: 699, // Adjust as needed
+          max_tokens: 1000, // Adjust as needed
           temperature: 0.8, // Adjust as needed
           n: 1 // Number of completions to generate
       })
@@ -98,7 +98,6 @@ const main = async () => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   ans.addEventListener("click", function (e) { e.preventDefault(); });
   ans.focus();
-  ans.select();
   ans.value = "Please wait for the API to fetch the answer.";
   setToStorage('RESPONSE', ans.value)
 
@@ -122,7 +121,7 @@ main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   ans.addEventListener("click", function (e) { e.preventDefault(); });
   if (response && response.choices && response.choices.length > 0) {
-    const ans = response.choices[0].message.content.toString().slice(0, 699);
+    const ans = response.choices[0].message.content.toString();
     navigator.clipboard.writeText(ans);
     setToStorage('RESPONSE', ans)
     ans.focus();
