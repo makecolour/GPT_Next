@@ -29,6 +29,8 @@ ai.addEventListener("click", ()=>{
 document.addEventListener("DOMContentLoaded", async ()=>{
     const api = await getFromStorage('API_KEY');
     const answer = await getFromStorage('RESPONSE');
+    const theme = await getFromStorage('THEME', '');
+
     key.value = api;
     if(key.value == "undefined") {
         key.value = "";
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     if(response.value == "undefined") {
         response.value = "";
     }
+    update(theme);
 })
 
 ask.addEventListener("click", async() =>{
@@ -107,3 +110,59 @@ async function promptChatGPT(prompt, api, model) {
         return null;
       });
   }
+
+  const themeBtn = document.getElementsByClassName("bg")
+  for(let i = 0; i < themeBtn.length; i++)
+  {
+      themeBtn[i].addEventListener("click", ()=>{
+          update(themeBtn[i].value);
+          setToStorage("THEME", themeBtn[i].value);
+      })
+  }
+
+const body = document.getElementById("body")
+
+function update(value="light"){
+    const paths = document.getElementById("setting").getElementsByTagName("path");
+    const logo = document.getElementById("logo").getElementsByTagName("path");
+    console.log(logo) 
+
+	switch(value)
+	{
+		case "light":
+			body.setAttribute("data-bs-theme","light");
+			for(let i = 0; i < paths.length; i++)
+        {
+            paths[i].attributes.fill.nodeValue = "#0f1729"
+        }
+      for(let i = 0; i < logo.length; i++)
+      {
+        logo[i].style.fill = "black"
+      }
+      logo[1].style.fill = "#f27125"
+      logo[2].style.fill = "#f27125"
+			break;
+		case "dark":
+			body.setAttribute("data-bs-theme","dark");
+			for(let i = 0; i < paths.length; i++)
+        {
+            paths[i].attributes.fill.nodeValue = "#dee2e6"
+        }
+        logo[0].style.fill = "#dee2e6"
+        logo[1].style.fill = "#f27125"
+        logo[2].style.fill = "#f27125"
+        logo[3].style.fill = "#dee2e6"
+			break;
+		case "sys":
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			{
+				return update("dark")
+			}
+			else{
+				return update("light")
+			}
+			break;
+		default:
+			break;
+	}
+}
