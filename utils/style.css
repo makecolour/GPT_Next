@@ -23,7 +23,7 @@ body {
     margin-bottom: 0px;
 }
 
-.settingBtn .theme, .title .openai{
+.settingBtn .theme{
     background-color: rgba(0,0,0,0);
     border-color: rgba(0, 0,0 ,0);
     color: rgb(242,112,27);
@@ -31,17 +31,40 @@ body {
     margin: auto 0;
 }
 
-.openai:focus{
+.settingBtn .theme:focus{
     background-color: rgba(0,0,0,0);
     border-color: rgba(0, 0,0 ,0);
 }
 
-.openai:hover {
-    background-color: rgba(255, 255, 255, 0);
+.settingBtn .theme:hover {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0,0 ,0.25);
+}
+
+.settingBtn .theme:active {
+    background-color: rgba(0,0,0,0);
     border-color: rgba(0, 0,0 ,0);
 }
 
-.openai:active {
+.title .openai{
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0,0 ,0);
+    color: rgb(242,112,27);
+    padding: 4px 4px;
+    margin: auto 0;
+}
+
+.title .openai:focus{
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0,0 ,0);
+}
+
+.title .openai:hover {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0,0 ,0);
+}
+
+.title .openai:active {
     background-color: rgba(0,0,0,0);
     border-color: rgba(0, 0,0 ,0);
 }
