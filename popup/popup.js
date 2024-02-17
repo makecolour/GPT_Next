@@ -20,6 +20,7 @@ save.addEventListener("click", ()=>{
 copy.addEventListener("click", ()=>{
     navigator.clipboard.writeText(response.value);
     alert("Copied to clipboard");
+    window.close();
 });
 
 ai.addEventListener("click", ()=>{
