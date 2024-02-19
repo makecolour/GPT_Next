@@ -15,6 +15,8 @@ async function getTxt() {
       const text = question[0].innerText.toString().replace(/[\r\n]/gm, ' ');
       const images = question[0].querySelectorAll("img");
 
+      setToStorage('QUESTION', text);
+
       if (text && text.trim() !== "" && images.length > 0) {
         const imageData = Array.from(images).map(img => {
           return { type: "image_url", image_url: { url: img.src } };
@@ -79,7 +81,6 @@ async function promptChatGPT(prompt, api, model) {
   };
   }
   
-
   console.log(requestOptions)
   return fetch(url, requestOptions)
     .then(response => response.json())
@@ -120,10 +121,16 @@ const main = async () => {
 main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   ans.addEventListener("click", function (e) { e.preventDefault(); });
-  if (response && response.choices && response.choices.length > 0) {
-    const ans = response.choices[0].message.content.toString();
-    navigator.clipboard.writeText(ans);
-    setToStorage('RESPONSE', ans)
+  if(response.error)
+  {
+    const answer = response.error.message;
+    setToStorage('RESPONSE', "Error: "+answer);
+    ans.value = "Error, open popup for more information!";
+  }
+  else if (response && response.choices && response.choices.length > 0) {
+    const answer = response.choices[0].message.content.toString();
+    navigator.clipboard.writeText(answer);
+    setToStorage('RESPONSE', answer)
     ans.focus();
     ans.select();
     ans.value = "Successfully copied the answer, paste it here!!";

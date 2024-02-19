@@ -3,13 +3,15 @@ body {
 }
 
 #logo{
-
-    width: 50%;
-
+    width: 40%;
 }
 
 .form-control{
     margin-bottom: 5px;
+}
+
+.openai{
+    margin-top: 0px;
 }
 
 .title {
@@ -21,6 +23,7 @@ body {
     text-align: center;
     justify-content: center;
     margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .settingBtn .theme{
@@ -44,6 +47,14 @@ body {
 .settingBtn .theme:active {
     background-color: rgba(0,0,0,0);
     border-color: rgba(0, 0,0 ,0);
+}
+
+.dropdown-item-text{
+    text-align: center;
+}
+
+.dropdown-item:active{
+    background-color: rgb(242,112,27);
 }
 
 .title .openai{
@@ -159,7 +170,7 @@ body {
 }
 
 .input-group .saveBtn:active{
-    background-color: rgb(242, 112, 27);
+    background-color: rgb(242, 112, 27);  
 }
 
 .input-group .saveBtn{
