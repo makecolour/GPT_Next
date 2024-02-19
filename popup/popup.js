@@ -30,7 +30,10 @@ ai.addEventListener("click", () => {
   window.open("https://platform.openai.com/api-keys", '_blank').focus()
 });
 
-clear.addEventListener("click", () => {question.value = '';});
+clear.addEventListener("click", () => {
+  question.value = '';
+  question.focus();
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   const api = await getFromStorage('API_KEY', '');
