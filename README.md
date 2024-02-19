@@ -54,7 +54,7 @@ Sao chép bất kì câu hỏi nào ở trên web hay trên máy, dán vào ô c
 
 > Nếu ô "Respond Here" trống sau vài giây hay có trả lời nhưng báo lỗi thì bạn đã cài đặt Tool không đúng hay API sai, bạn hãy kiểm tra lại nhé :(
 
-**Chúc mừng, bạn đã thành công cài đặt và sử dụng GPT-Next thành công
+**Chúc mừng, bạn đã thành công cài đặt và sử dụng GPT-Next thành công**
 
 # Tác giả
 Phát triển bởi Montserrat và NobleMode cuar Chillin Studio
