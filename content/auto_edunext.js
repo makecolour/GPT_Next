@@ -21,15 +21,18 @@ async function getTxt() {
         const imageData = Array.from(images).map(img => {
           return { type: "image_url", image_url: { url: img.src } };
         });
-
+        setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+        setToStorage('QUESTION', "");
         resolve([{ type: "text", text: text }, ...imageData]);
       } else if (text && text.trim() !== "") {
+        setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
         resolve([{ type: "text", text: text }]);
       } else if (images.length > 0) {
         const imageData = Array.from(images).map(img => {
           return { type: "image_url", image_url: { url: img.src } };
         });
-
+        setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+        setToStorage('QUESTION', "");
         resolve([{ type: "text", text: "Solve this: " }, ...imageData]);
       } else {
         resolve(null); // Resolve with null if no text or images
@@ -97,16 +100,22 @@ const main = async () => {
   console.log(prompt);
 
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
-  ans.addEventListener("click", function (e) { e.preventDefault(); });
-  ans.focus();
-  ans.value = "Please wait for the API to fetch the answer.";
-  setToStorage('RESPONSE', ans.value)
+  if(ans)
+  {
+    ans.addEventListener("click", function (e) { e.preventDefault(); });
+    ans.focus();
+    ans.value = "";
+  }
+  setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
 
   const submit = document.getElementsByClassName("css-1n61s5c")[0]
-  submit.addEventListener("click", function (e) {
-    setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
-  });
-
+  if(submit)
+  {
+    submit.addEventListener("click", function (e) {
+      setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+      });
+  }
+  
   var response;
   for (let i = 0; i < models.length; i++) {
     response = await promptChatGPT(prompt, api, models[i]);
@@ -120,20 +129,27 @@ const main = async () => {
 
 main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
-  ans.addEventListener("click", function (e) { e.preventDefault(); });
+
   if(response.error)
   {
     const answer = response.error.message;
     setToStorage('RESPONSE', "Error: "+answer);
-    ans.value = "Error, open popup for more information!";
+    if(ans)
+    {
+      ans.value = "Error, open popup for more information!";
+    }
   }
   else if (response && response.choices && response.choices.length > 0) {
     const answer = response.choices[0].message.content.toString();
     navigator.clipboard.writeText(answer);
     setToStorage('RESPONSE', answer)
-    ans.focus();
-    ans.select();
-    ans.value = "Successfully copied the answer, paste it here!!";
+    if(ans)
+    {
+      ans.focus();
+      ans.select();
+      ans.value = "Successfully copied the answer, paste it here!!";
+    }
+    
   }
 });
 

@@ -9,6 +9,7 @@ const ai = document.getElementsByClassName("openai")[0];
 const question = document.getElementById("question");
 const ask = document.getElementById("ask");
 const clear = document.getElementById("clearButton");
+const show = document.getElementById("togglePassword");
 var clipboard;
 
 save.addEventListener("click", () => {
@@ -55,6 +56,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   update(theme);
 })
+
+show.addEventListener("click",() => {
+  if(key.type == "password")
+  {
+    key.type = "text"
+    show.innerHTML = "Hide"
+  }
+  else{
+    key.type = "password"
+    show.innerHTML = "Show"
+  }
+});
 
 ask.addEventListener("click", async () => {
   response.value = "Please wait for the API to fetch the answer.";
