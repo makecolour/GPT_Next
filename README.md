@@ -55,7 +55,7 @@ Vào extension rồi vào ô API key, nhập API Key vừa sao chép và Nhấn 
 
 **Lưu ý: ** Ngoài ra, bạn còn có thể nhập câu hỏi vào ô "Ask me a question" và nhấn "Ask" để có thể sử dụng ChatGPT như bình thường (trừ việc là cuộc trò chuyện của bạn sẽ không được lưu)
 
-**Chúc mừng, bạn đã thành công cài đặt và sử dụng GPT-Next thành công
+**Chúc mừng, bạn đã thành công cài đặt và sử dụng GPT-Next thành công**
 
 # Tác giả
 Phát triển bởi Montserrat và NobleMode đến từ Chillin Studio
