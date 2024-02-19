@@ -8,7 +8,7 @@ Tool giúp trả lời các câu hỏi bằng Trí tuệ Nhân tạo AI
 > Hiện giờ chỉ hỗ trợ API của ChatGPT
 
 1. Trả lời các câu hỏi từ dễ đến khó
-2. Trả lời các câu hỏi từ hình ảnh (WIP)
+2. Trả lời các câu hỏi từ hình ảnh (Chỉ khi bạn có GPT Plus)
 
 # Cách cài đặt và Sử dụng
 
@@ -47,17 +47,18 @@ Tool giúp trả lời các câu hỏi bằng Trí tuệ Nhân tạo AI
 ### Bước 2: Thêm API Key
 Vào extension rồi vào ô API key, nhập API Key vừa sao chép và Nhấn save
 
-### Bước 3: Thêm câu hỏi và trả lời
-Sao chép bất kì câu hỏi nào ở trên web hay trên máy, dán vào ô câu hỏi rồi nhấn hỏi, đợi vài giây để có câu trả lời
+### Bước 3: Truy cập vào 1 câu hỏi trên EduNext, reload lại trang và đợi 1 vài giây để dòng "Successfully copied the answer, paste it here!" hiện lên trên textbox trả lời, sau đó paste câu trả lời vào đó. Nếu không thấy dòng chữ hiện lên sau quá lâu, hãy nhấn vào logo Extension trên thanh công cụ để mở pop-up:
 
-> Nếu ô "Respond Here" có thay đổi và có câu trả lời mong muốn thì bạn đã cài đặt Tool và API đúng và có thể tiếp tục sử dụng Tool :D
+> Nếu ô "Lastest response here" có thay đổi và có câu trả lời mong muốn thì bạn đã cài đặt Tool và API đúng và có thể tiếp tục sử dụng Tool :D
 
-> Nếu ô "Respond Here" trống sau vài giây hay có trả lời nhưng báo lỗi thì bạn đã cài đặt Tool không đúng hay API sai, bạn hãy kiểm tra lại nhé :(
+> Nếu ô "Lastest response here" trống sau vài giây hay có trả lời nhưng báo lỗi thì bạn đã cài đặt Tool không đúng hay API sai, bạn hãy kiểm tra lại nhé :(
+
+**Lưu ý: ** Ngoài ra, bạn còn có thể nhập câu hỏi vào ô "Ask me a question" và nhấn "Ask" để có thể sử dụng ChatGPT như bình thường (trừ việc là cuộc trò chuyện của bạn sẽ không được lưu)
 
 **Chúc mừng, bạn đã thành công cài đặt và sử dụng GPT-Next thành công
 
 # Tác giả
-Phát triển bởi Montserrat và NobleMode cuar Chillin Studio
+Phát triển bởi Montserrat và NobleMode đến từ Chillin Studio
 
 # Đóng góp
 Mọi đóng góp cho dự án đều được trân trọng nhé :D
