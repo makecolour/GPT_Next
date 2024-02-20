@@ -140,7 +140,13 @@ main().then(response => {
     }
   }
   else if (response && response.choices && response.choices.length > 0) {
-    const answer = response.choices[0].message.content.toString();
+    if(response.choices[0].text)
+    {
+      var answer = response.choices[0].text;
+    }
+    else{
+      var answer = response.choices[0].message.content.toString();
+    }
     navigator.clipboard.writeText(answer);
     setToStorage('RESPONSE', answer)
     if(ans)
@@ -149,7 +155,6 @@ main().then(response => {
       ans.select();
       ans.value = "Successfully copied the answer, paste it here!!";
     }
-    
   }
 });
 

@@ -10,6 +10,7 @@ const question = document.getElementById("question");
 const ask = document.getElementById("ask");
 const clear = document.getElementById("clearButton");
 const show = document.getElementById("togglePassword");
+
 var clipboard;
 
 save.addEventListener("click", () => {
@@ -22,7 +23,7 @@ save.addEventListener("click", () => {
 
 copy.addEventListener("click", () => {
   navigator.clipboard.writeText(response.value);
-  alert("Copied to clipboard");
+  //alert("Copied to clipboard");
   window.close();
 });
 
