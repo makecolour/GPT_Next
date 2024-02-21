@@ -88,14 +88,19 @@ ask.addEventListener("click", async () => {
   if (ans.error) {
     const answer = ans.error.message;
     setToStorage('RESPONSE', "Error: " + answer);
-    response.value = answer;
+    response.value = "Error: "+answer;
   }
   else {
-    setToStorage("RESPONSE", ans.choices[0].message.content.toString());
-    response.value = ans.choices[0].message.content.toString();
+    if(ans.choices[0].text)
+    {
+      var answer = ans.choices[0].text;
+    }
+    else{
+      var answer = ans.choices[0].message.content.toString();
+    }
+    response.value = answer;
   }
   console.log(ans);
-
 });
 
 async function promptChatGPT(prompt, api, model) {
@@ -141,7 +146,6 @@ async function promptChatGPT(prompt, api, model) {
     };
   }
 
-
   console.log(requestOptions)
   return fetch(url, requestOptions)
     .then(response => response.json())
@@ -164,7 +168,6 @@ const body = document.getElementById("body")
 function update(value = "light") {
   const paths = document.getElementById("setting").getElementsByTagName("path");
   const logo = document.getElementById("logo").getElementsByTagName("path");
-  console.log(logo)
 
   switch (value) {
     case "light":
