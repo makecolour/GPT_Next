@@ -164,7 +164,6 @@ const body = document.getElementById("body")
 function update(value = "light") {
   const paths = document.getElementById("setting").getElementsByTagName("path");
   const logo = document.getElementById("logo").getElementsByTagName("path");
-  console.log(logo)
 
   switch (value) {
     case "light":
