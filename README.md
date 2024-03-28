@@ -58,7 +58,7 @@ Vào extension rồi vào ô API key, nhập API Key vừa sao chép và Nhấn 
 **Chúc mừng, bạn đã thành công cài đặt và sử dụng GPT-Next thành công**
 
 # Tác giả
-Phát triển bởi Montserrat và NobleMode đến từ Chillin Studio
+Phát triển bởi Montserrat đến từ Chillin Studio
 
 # Đóng góp
 Mọi đóng góp cho dự án đều được trân trọng nhé :D
