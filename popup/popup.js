@@ -102,6 +102,7 @@ ask.addEventListener("click", async () => {
       var answer = ans.choices[0].message.content.toString();
     }
     response.value = answer;
+    setToStorage('RESPONSE', answer);
   }
   console.log(ans);
 });

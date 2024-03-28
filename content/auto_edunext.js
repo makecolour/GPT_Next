@@ -108,13 +108,13 @@ const main = async () => {
   }
   setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
 
-  const submit = document.getElementsByClassName("css-1n61s5c")[0]
-  if(submit)
-  {
-    submit.addEventListener("click", function (e) {
-      setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
-      });
-  }
+  // const submit = document.getElementsByClassName("css-1n61s5c")[0]
+  // if(submit)
+  // {
+  //   submit.addEventListener("click", function (e) {
+  //     setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+  //     });
+  // }
   
   var response;
   for (let i = 0; i < models.length; i++) {
