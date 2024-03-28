@@ -73,6 +73,9 @@ show.addEventListener("click",() => {
   }
 });
 
+let version = chrome.runtime.getManifest().version;
+document.getElementById('version').textContent = version;
+
 ask.addEventListener("click", async () => {
   response.value = "Please wait for the API to fetch the answer.";
   const prompt = question.value;
