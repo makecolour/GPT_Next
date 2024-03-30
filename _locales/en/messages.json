@@ -94,7 +94,7 @@
         "description": "Popup, Getlink"
     },
     "version": {
-        "message": "😎 Version <a href=\"https://github.com/makecolour/FU-Autokit\" target=\"_blank\">{{version}}</a> 😎",
+        "message": "😎 Version <a href=\"https://github.com/makecolour/GPT_Next\" target=\"_blank\">{{version}}</a> 😎",
         "description": "Popup, Getlink"
     },
     "solveThis": {

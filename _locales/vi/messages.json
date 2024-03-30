@@ -94,7 +94,7 @@
         "description": "Popup"
     },
     "version": {
-        "message": "😎 Phiên bản <a href=\"https://github.com/makecolour/FU-Autokit\" target=\"_blank\">{{version}}</a> 😎",
+        "message": "😎 Phiên bản <a href=\"https://github.com/makecolour/GPT_Next\" target=\"_blank\">{{version}}</a> 😎",
         "description": "Popup"
     },
     "solveThis": {
