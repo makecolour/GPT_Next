@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "GPT_Next",
     "version": "1.0",
-    "description": "Developing",
+    "description": "GPT_Next - Hỗ trợ học tập trực tuyến trên FPT Edunext",
     "action": {
 		"default_popup": "./popup/popup.html"
 	},
