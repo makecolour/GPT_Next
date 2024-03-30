@@ -23,10 +23,13 @@
                         </svg>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><h6 class="dropdown-item-text">Giao diện</h6></li>
-                    <option class="dropdown-item bg" value="light">Sáng</option>
-                    <option class="dropdown-item bg" value="dark">Tối</option>
-                    <option class="dropdown-item bg" value="sys">Hệ thống</option>
+                    <li><h6 class="dropdown-item-text" id="theme"></h6></li>
+                    <option class="dropdown-item bg" id="light" value="light"></option>
+                    <option class="dropdown-item bg" id="dark" value="dark"></option>
+                    <option class="dropdown-item bg" id="sys" value="sys"></option>
+                    <li><h6 class="dropdown-item-text" id="language"></h6></li>
+                    <option class="dropdown-item lang" value="vi" id="vi"></option>
+                    <option class="dropdown-item lang" value="en" id="en"></option>
                 </div>
             </div>
         </div>
@@ -45,25 +48,24 @@
     <div class="mainBody">
         <!-- Body Start -->
             <div class="input-group">
-            <input type="text" class="form-control" placeholder="ChatGPT Personal API Key" aria-label="API Key" id="key" style="margin-bottom: 0px;">
+            <input type="text" class="form-control" aria-label="API Key" id="key" style="margin-bottom: 0px;">
             <span class="input-group-text" id="togglePassword" style="cursor: pointer; user-select: none;">
-                Show
             </span>
-            <button class="btn btn-primary saveBtn" type="button" id ="save">Save</button>
+            <button class="btn btn-primary saveBtn" type="button" id ="save"></button>
             </div>
 
             <div class="form-floating">
             <textarea class="form-control" placeholder="Ask me something" id="question" style="height: 100px"></textarea>
-            <button class="btn btn-outline-secondary position-absolute bottom-0 end-0" type="button" id="clearButton">Clear</button>
-            <label for="question">Ask me something</label>
-            <button type="button" class="btn btn-primary copy" id = "ask">Ask</button>
+            <button class="btn btn-outline-secondary position-absolute bottom-0 end-0" type="button" id="clearButton"></button>
+            <label for="question"></label>
+            <button type="button" class="btn btn-primary copy" id = "ask"></button>
             </div>
 
             <div class="form-floating">
             <textarea class="form-control" placeholder="Lastest response" id="floatingTextarea" readonly style="height: 150px"></textarea>
-            <label for="floatingTextarea">Lastest response</label>
+            <label for="floatingTextarea"></label>
             
-            <button type="button" class="btn btn-primary copy" id = "copy">Copy</button>
+            <button type="button" class="btn btn-primary copy" id = "copy"></button>
             </div>
 
         <!-- Body Done -->
@@ -72,9 +74,11 @@
     <div class="footer">
 
         <!-- Footer Start -->
-        <div>
-            <p>A project by <a href="https://www.facebook.com/PresentedbyChillinStudio" target="_blank">Chillin Studio</a></p>
-            <p>😎 Version <a href="https://github.com/makecolour/GPT_Next" target="_blank" id="version"></a> 😎</p>
+        <div class="row"> <!--content footer-->
+            <div class="footer">
+                <p id="madeby"></p>
+                <p id="version"></p>
+            </div>
         </div>
         <!-- Footer Done -->
 

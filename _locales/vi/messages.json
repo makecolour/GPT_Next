@@ -1,3 +1,116 @@
 {
-    
+    "theme":
+    {
+        "message": "Giao diện",
+        "description": "Popup"
+    },
+    "light":
+    {
+        "message": "Sáng",
+        "description": "Popup"
+    },
+    "dark":
+    {
+        "message": "Tối",
+        "description": "Popup"
+    },
+    "system":
+    {
+        "message": "Hệ thống",
+        "description": "Popup"
+    },
+    "language":
+    {
+        "message": "Ngôn ngữ",
+        "description": "Popup"
+    },
+    "vi":
+    {
+        "message": "Tiếng Việt",
+        "description": "Popup"
+    },
+    "en":
+    {
+        "message": "Tiếng Anh",
+        "description": "Popup"
+    },
+    "key":
+    {
+        "message": "Khóa API cá nhân ChatGPT",
+        "description": "Popup"
+    },
+    "togglePasswordon":
+    {
+        "message": "Hiển thị",
+        "description": "Popup"
+    },
+    "togglePasswordoff":
+    {
+        "message": "Ẩn",
+        "description": "Popup"
+    },
+    "save":
+    {
+        "message": "Lưu",
+        "description": "Popup"
+    },
+    "saved":
+    {
+        "message": "Đã lưu!",
+        "description": "Popup"
+    },
+    "question":
+    {
+        "message": "Hãy hỏi tôi điều gì đó",
+        "description": "Popup"
+    },
+    "clearButton":
+    {
+        "message": "Xóa",
+        "description": "Popup"
+    },
+    "ask":
+    {
+        "message": "Hỏi",
+        "description": "Popup"
+    },
+    "floatingTextarea":
+    {
+        "message": "Phản hồi mới nhất",
+        "description": "Popup"
+    },
+    "copy":
+    {
+        "message": "Sao chép",
+        "description": "Popup"
+    },
+    "loading":
+    {
+        "message": "Vui lòng chờ API lấy câu trả lời...",
+        "description": "Popup"
+    },
+    "madeby": {
+        "message": "🧟 Phát triển bởi zombie của <a href=\"https://www.facebook.com/PresentedbyChillinStudio\" target=\"_blank\">Chillin Studio</a> 🧟",
+        "description": "Popup"
+    },
+    "version": {
+        "message": "😎 Phiên bản <a href=\"https://github.com/makecolour/FU-Autokit\" target=\"_blank\">{{version}}</a> 😎",
+        "description": "Popup"
+    },
+    "solveThis": {
+        "message": "Giải quyết điều này",
+        "description": "Edunext"
+    },
+    "success": {
+        "message": "Đã sao chép thành công câu trả lời, hãy dán nó vào đây!!",
+        "description": "Edunext"
+    },
+    "error": {
+        "message": "Lỗi: ",
+        "description": "Edunext"
+    },
+    "errorPopup": {
+        "message": "Lỗi, mở console để biết thêm thông tin!",
+        "description": "Edunext"
+    }
 }

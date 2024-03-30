@@ -10,14 +10,14 @@ const question = document.getElementById("question");
 const ask = document.getElementById("ask");
 const clear = document.getElementById("clearButton");
 const show = document.getElementById("togglePassword");
-
+const label={};
 var clipboard;
 
 save.addEventListener("click", () => {
   const api = key.value;
   setToStorage('API_KEY', api);
   key.type = "password";
-  alert("Đã lưu: " + api);
+  alert(saved);
   window.close();
 });
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const answer = await getFromStorage('RESPONSE', '');
   const theme = await getFromStorage('THEME', '');
   const prompt = await getFromStorage('QUESTION', '');
-
+  const lang = await getFromStorage('LANG', '');
   key.value = api;
   if (key.value == "undefined") {
     key.value = "";
@@ -59,17 +59,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     question.value = ""
   }
   update(theme);
+
+  if(lang&&lang.includes("vi"))
+	{
+		updateLang("vi");
+	}
+	else{
+		updateLang("en");
+	}
 })
 
 show.addEventListener("click",() => {
   if(key.type == "password")
   {
     key.type = "text"
-    show.innerHTML = "Hide"
+    show.innerHTML = label.togglePasswordoff.message;
   }
   else{
     key.type = "password"
-    show.innerHTML = "Show"
+    show.innerHTML = label.togglePasswordon.message;
   }
 });
 
@@ -77,7 +85,7 @@ let version = chrome.runtime.getManifest().version;
 document.getElementById('version').textContent = version;
 
 ask.addEventListener("click", async () => {
-  response.value = "Please wait for the API to fetch the answer.";
+  response.value = label.loading.message;
   const prompt = question.value;
   setToStorage('QUESTION', prompt);
   const api = await getFromStorage('API_KEY');
@@ -206,4 +214,76 @@ function update(value = "light") {
     default:
       break;
   }
+}
+
+const langBtn = document.getElementsByClassName("lang")
+
+for(let i = 0; i < langBtn.length; i++)
+{
+	langBtn[i].addEventListener("click", ()=>{
+		updateLang(langBtn[i].value);
+	})
+}
+
+async function updateLang(lang ="vi"){
+	switch(lang)
+	{
+		case "vi":
+			setToStorage("LANG", '/_locales/vi/messages.json');
+			fetch(chrome.runtime.getURL('/_locales/vi/messages.json')).then(response => response.json()).then(messages => {
+        Object.assign(label, messages);
+				changeLanguage(messages);
+			});
+			break;
+		case "en":
+			setToStorage("LANG", '/_locales/en/messages.json');
+			fetch(chrome.runtime.getURL('/_locales/en/messages.json')).then(response => response.json()).then(messages => {
+        Object.assign(label, messages);
+				changeLanguage(messages);
+			});
+			break;
+		default:
+			break;
+	}
+}
+function changeLanguage(label){
+	document.getElementById("theme").textContent = label.theme.message;
+	document.getElementById("light").textContent = label.light.message;
+	document.getElementById("dark").textContent = label.dark.message;
+	document.getElementById("sys").textContent = label.system.message;
+	document.getElementById("language").textContent = label.language.message;
+	document.getElementById("vi").textContent = label.vi.message;
+	document.getElementById("en").textContent = label.en.message;
+
+  document.getElementById("key").placeholder = label.key.message;
+  if(key.type == "password")
+  {
+    show.innerHTML = label.togglePasswordon.message;
+  }
+  else{
+    show.innerHTML = label.togglePasswordon.message;
+  }
+  save.textContent = label.save.message;
+
+  let labels = document.querySelectorAll('label');
+	for(let i = 0; i < labels.length; i++) {
+		const fill = labels[i].getAttribute('for');
+		switch(fill){
+			case "question":
+				labels[i].textContent = label.question.message;
+				break;
+			case "floatingTextarea":
+				labels[i].textContent = label.floatingTextarea.message;
+				break;
+			default:
+				break
+		}
+	}
+
+  clear.textContent = label.clearButton.message;
+  ask.textContent = label.ask.message;
+  copy.textContent = label.copy.message;
+
+  document.getElementById("madeby").innerHTML = label.madeby.message;
+	document.getElementById("version").innerHTML = label.version.message.replace("{{version}}", chrome.runtime.getManifest().version);
 }

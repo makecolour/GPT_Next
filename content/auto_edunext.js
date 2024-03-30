@@ -1,7 +1,9 @@
 const models = ["gpt-3.5-turbo", "gpt-4-vision-preview", "gpt-4",  "gpt-3.5-turbo-instruct"]
 const endPoints = ["https://api.openai.com/v1/chat/completions", "https://api.openai.com/v1/completions"]
+const label = {};
 
 async function getTxt() {
+  
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       for (let i = 0; i < document.getElementsByClassName("css-1id89ip").length; i++) {
@@ -21,19 +23,19 @@ async function getTxt() {
         const imageData = Array.from(images).map(img => {
           return { type: "image_url", image_url: { url: img.src } };
         });
-        setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+        setToStorage('RESPONSE', label.loading.message)
         setToStorage('QUESTION', "");
         resolve([{ type: "text", text: text }, ...imageData]);
       } else if (text && text.trim() !== "") {
-        setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+        setToStorage('RESPONSE', label.loading.message)
         resolve([{ type: "text", text: text }]);
       } else if (images.length > 0) {
         const imageData = Array.from(images).map(img => {
           return { type: "image_url", image_url: { url: img.src } };
         });
-        setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
+        setToStorage('RESPONSE', label.loading.message)
         setToStorage('QUESTION', "");
-        resolve([{ type: "text", text: "Solve this: " }, ...imageData]);
+        resolve([{ type: "text", text: label.solveThis.message }, ...imageData]);
       } else {
         resolve(null); // Resolve with null if no text or images
       }
@@ -88,7 +90,7 @@ async function promptChatGPT(prompt, api, model) {
   return fetch(url, requestOptions)
     .then(response => response.json())
     .catch(error => {
-      console.error('Error:', error);
+      console.error(label.error.message, error);
       return null;
     });
 }
@@ -96,8 +98,10 @@ async function promptChatGPT(prompt, api, model) {
 // Example usage
 const main = async () => {
   const api = await getFromStorage('API_KEY', '');
-  const prompt = await getTxt();
-  console.log(prompt);
+  const lang = await getFromStorage('LANG', '');
+  const res = await fetch(chrome.runtime.getURL(lang));
+  const messages = await res.json();
+  Object.assign(label, messages);
 
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
   if(ans)
@@ -106,8 +110,9 @@ const main = async () => {
     ans.focus();
     ans.value = "";
   }
-  setToStorage('RESPONSE', "Please wait for the API to fetch the answer.")
 
+  const prompt = await getTxt();
+  setToStorage('RESPONSE', label.loading.message);
   // const submit = document.getElementsByClassName("css-1n61s5c")[0]
   // if(submit)
   // {
@@ -133,10 +138,10 @@ main().then(response => {
   if(response.error)
   {
     const answer = response.error.message;
-    setToStorage('RESPONSE', "Error: "+answer);
+    setToStorage('RESPONSE', label.error.message+answer);
     if(ans)
     {
-      ans.value = "Error, open popup for more information!";
+      ans.value = label.errorPopup.message;
     }
   }
   else if (response && response.choices && response.choices.length > 0) {
@@ -153,7 +158,7 @@ main().then(response => {
     {
       ans.focus();
       ans.select();
-      ans.value = "Successfully copied the answer, paste it here!!";
+      ans.value = label.success.message;
     }
   }
 });

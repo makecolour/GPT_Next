@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "GPT_Next",
-    "version": "0.3",
+    "version": "1.0",
     "description": "Developing",
     "action": {
 		"default_popup": "./popup/popup.html"
@@ -9,6 +9,15 @@
 	"default_locale": "vi",
 	"options_page": "./popup/popup.html",
 	"homepage_url": "https://github.com/makecolour/GPT_Next",
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"/_locales/vi/messages.json",
+				"/_locales/en/messages.json"
+			],
+			"matches": ["<all_urls>"]
+		}
+	],
     "permissions": [
         "storage",
 		"contextMenus",
@@ -29,7 +38,6 @@
 				"./content/auto_edunext.js"
 			],
 			"run_at": "document_end"
-			//,"world":"MAIN"
 		}
     ],
 	"icons":{

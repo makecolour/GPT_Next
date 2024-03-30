@@ -1,3 +1,116 @@
 {
-    
+    "theme":
+    {
+        "message": "Theme",
+        "description": "Popup"
+    },
+    "light":
+    {
+        "message": "Light",
+        "description": "Popup"
+    },
+    "dark":
+    {
+        "message": "Dark",
+        "description": "Popup"
+    },
+    "system":
+    {
+        "message": "System",
+        "description": "Popup"
+    },
+    "language":
+    {
+        "message": "Language",
+        "description": "Popup"
+    },
+    "vi":
+    {
+        "message": "Vietnamese",
+        "description": "Popup"
+    },
+    "en":
+    {
+        "message": "English",
+        "description": "Popup"
+    },
+    "key":
+    {
+        "message": "ChatGPT Personal API Key" ,
+        "description": "Popup"
+    },
+    "togglePasswordon":
+    {
+        "message": "Show",
+        "description": "Popup"
+    },
+    "togglePasswordoff":
+    {
+        "message": "Hide",
+        "description": "Popup"
+    },
+    "save":
+    {
+        "message": "Save",
+        "description": "Popup"
+    },
+    "saved":
+    {
+        "message": "Saved!",
+        "description": "Popup"
+    },
+    "question":
+    {
+        "message": "Ask me something",
+        "description": "Popup"
+    },
+    "clearButton":
+    {
+        "message": "Clear",
+        "description": "Popup"
+    },
+    "ask":
+    {
+        "message": "Ask",
+        "description": "Popup"
+    },
+    "floatingTextarea":
+    {
+        "message": "Lastest response",
+        "description": "Popup"
+    },
+    "copy":
+    {
+        "message": "Copy",
+        "description": "Popup"
+    },
+    "loading":
+    {
+        "message": "Please wait for the API to fetch the answer...",
+        "description": "Popup"
+    },
+    "madeby": {
+        "message": "A project by <a href=\"https://www.facebook.com/PresentedbyChillinStudio\" target=\"_blank\">Chillin Studio</a>",
+        "description": "Popup, Getlink"
+    },
+    "version": {
+        "message": "😎 Version <a href=\"https://github.com/makecolour/FU-Autokit\" target=\"_blank\">{{version}}</a> 😎",
+        "description": "Popup, Getlink"
+    },
+    "solveThis": {
+        "message": "Solve this",
+        "description": "Edunext"
+    },
+    "success": {
+        "message": "Successfully copied the answer, paste it here!!",
+        "description": "Edunext"
+    },
+    "error": {
+        "message": "Error: ",
+        "description": "Edunext"
+    },
+    "errorPopup": {
+        "message": "Error, open console for more information!",
+        "description": "Edunext"
+    }
 }
