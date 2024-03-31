@@ -41,7 +41,7 @@
     },
     "togglePasswordon":
     {
-        "message": "Hiển thị",
+        "message": "Hiện",
         "description": "Popup"
     },
     "togglePasswordoff":

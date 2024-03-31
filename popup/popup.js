@@ -284,7 +284,7 @@ function changeLanguage(label){
 				labels[i].textContent = label.floatingTextarea.message;
 				break;
       case "customRange3":
-        labels[i].textContent = label.temperature.message + temperature.value;
+        labels[i].innerHTML = label.temperature.message + '<strong>' + temperature.value + '</strong>';
 			default:
 				break
 		}
