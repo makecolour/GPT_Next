@@ -19,6 +19,18 @@ temperature.addEventListener("mousemove", () => {
   changeLanguage(label);  
 });
 
+temperature.addEventListener("mouseup", () => {
+  setToStorage('TEMP', temperature.value);
+  changeLanguage(label);  
+});
+temperature.addEventListener("change", () => {
+  setToStorage('TEMP', temperature.value);
+  changeLanguage(label);  
+});
+temperature.addEventListener("mousedown", () => {
+  setToStorage('TEMP', temperature.value);
+  changeLanguage(label);  
+});
 save.addEventListener("click", () => {
   const api = key.value;
   setToStorage('API_KEY', api);
