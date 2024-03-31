@@ -1,7 +1,6 @@
 body {
     width: 400px;
 }
-
 #clearButton{
     margin-bottom: 50px;
     margin-right: 5px;
@@ -9,6 +8,7 @@ body {
 
 #logo{
     width: 40%;
+    margin-bottom: 0px;
 }
 
 .form-control{
@@ -17,6 +17,7 @@ body {
 
 .openai{
     margin-top: 0px;
+    cursor: default
 }
 
 .title {

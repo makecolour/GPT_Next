@@ -5,7 +5,7 @@ const key = document.getElementById("key");
 const save = document.getElementById("save");
 const response = document.getElementById("floatingTextarea");
 const copy = document.getElementById("copy");
-const ai = document.getElementsByClassName("openai")[0];
+const ai = document.getElementById("logo");
 const question = document.getElementById("question");
 const ask = document.getElementById("ask");
 const clear = document.getElementById("clearButton");
@@ -267,11 +267,14 @@ function changeLanguage(label){
   if(key.type == "password")
   {
     show.innerHTML = label.togglePasswordon.message;
+    show.title = label.togglePasswordon.message;
   }
   else{
     show.innerHTML = label.togglePasswordon.message;
+    show.title = label.togglePasswordon.message;
   }
   save.textContent = label.save.message;
+  save.title = label.save.message;
 
   let labels = document.querySelectorAll('label');
 	for(let i = 0; i < labels.length; i++) {
@@ -293,6 +296,9 @@ function changeLanguage(label){
   clear.textContent = label.clearButton.message;
   ask.textContent = label.ask.message;
   copy.textContent = label.copy.message;
+  clear.title = label.clearButton.message;
+  ask.title = label.ask.message;
+  copy.title = label.copy.message;
 
   document.getElementById("madeby").innerHTML = label.madeby.message;
 	document.getElementById("version").innerHTML = label.version.message.replace("{{version}}", chrome.runtime.getManifest().version);
