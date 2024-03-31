@@ -23,7 +23,7 @@ save.addEventListener("click", () => {
   const api = key.value;
   setToStorage('API_KEY', api);
   key.type = "password";
-  alert(saved);
+  alert(label.saved.message);
   window.close();
 });
 
