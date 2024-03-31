@@ -1,6 +1,7 @@
 const models = ["gpt-3.5-turbo", "gpt-4-vision-preview", "gpt-4",  "gpt-3.5-turbo-instruct"]
 const endPoints = ["https://api.openai.com/v1/chat/completions", "https://api.openai.com/v1/completions"]
 const label = {};
+var temp;
 
 async function getTxt() {
   
@@ -63,7 +64,7 @@ async function promptChatGPT(prompt, api, model) {
           }
         ],
         max_tokens: 1000, // Maximum number of tokens (words) the model should return
-        temperature: 0.8, // Controls the randomness of the output
+        temperature: Number(temp), // Controls the randomness of the output
         //stop: '\n', // Stops generation at a specific token
       })
     };
@@ -80,7 +81,7 @@ async function promptChatGPT(prompt, api, model) {
           model: modelName,
           prompt: prompt,
           max_tokens: 1000, // Adjust as needed
-          temperature: 0.8, // Adjust as needed
+          temperature: Number(temp), // Adjust as needed
           n: 1 // Number of completions to generate
       })
   };
@@ -99,6 +100,8 @@ async function promptChatGPT(prompt, api, model) {
 const main = async () => {
   const api = await getFromStorage('API_KEY', '');
   const lang = await getFromStorage('LANG', '');
+  const temperature = await getFromStorage('TEMP', '');
+  temp = temperature;
   const res = await fetch(chrome.runtime.getURL(lang));
   const messages = await res.json();
   Object.assign(label, messages);

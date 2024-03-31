@@ -59,6 +59,11 @@
         "message": "Saved!",
         "description": "Popup"
     },
+    "temperature":
+    {
+        "message": "Temperature: ",
+        "description": "Popup"
+    },
     "question":
     {
         "message": "Ask me something",
@@ -91,11 +96,11 @@
     },
     "madeby": {
         "message": "A project by <a href=\"https://www.facebook.com/PresentedbyChillinStudio\" target=\"_blank\">Chillin Studio</a>",
-        "description": "Popup, Getlink"
+        "description": "Popup"
     },
     "version": {
         "message": "😎 Version <a href=\"https://github.com/makecolour/GPT_Next\" target=\"_blank\">{{version}}</a> 😎",
-        "description": "Popup, Getlink"
+        "description": "Popup"
     },
     "solveThis": {
         "message": "Solve this",
@@ -107,7 +112,7 @@
     },
     "error": {
         "message": "Error: ",
-        "description": "Edunext"
+        "description": "Edunext, Popup"
     },
     "errorPopup": {
         "message": "Error, open console for more information!",

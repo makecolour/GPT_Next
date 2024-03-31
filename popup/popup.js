@@ -10,8 +10,14 @@ const question = document.getElementById("question");
 const ask = document.getElementById("ask");
 const clear = document.getElementById("clearButton");
 const show = document.getElementById("togglePassword");
+const temperature = document.getElementById("customRange3");
 const label={};
 var clipboard;
+
+temperature.addEventListener("mousemove", () => {
+  setToStorage('TEMP', temperature.value);
+  changeLanguage(label);  
+});
 
 save.addEventListener("click", () => {
   const api = key.value;
@@ -42,6 +48,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const theme = await getFromStorage('THEME', '');
   const prompt = await getFromStorage('QUESTION', '');
   const lang = await getFromStorage('LANG', '');
+  const temp = await getFromStorage('TEMP', '');
+
   key.value = api;
   if (key.value == "undefined") {
     key.value = "";
@@ -67,6 +75,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 	else{
 		updateLang("en");
 	}
+
+  temperature.value = temp;
 })
 
 show.addEventListener("click",() => {
@@ -81,8 +91,6 @@ show.addEventListener("click",() => {
   }
 });
 
-let version = chrome.runtime.getManifest().version;
-document.getElementById('version').textContent = version;
 
 ask.addEventListener("click", async () => {
   response.value = label.loading.message;
@@ -135,7 +143,7 @@ async function promptChatGPT(prompt, api, model) {
           }
         ],
         max_tokens: 1000, // Maximum number of tokens (words) the model should return
-        temperature: 0.8, // Controls the randomness of the output
+        temperature: Number(temperature.value), // Controls the randomness of the output
         //stop: '\n', // Stops generation at a specific token
       })
     };
@@ -152,7 +160,7 @@ async function promptChatGPT(prompt, api, model) {
         model: modelName,
         prompt: prompt,
         max_tokens: 1000, // Adjust as needed
-        temperature: 0.8, // Adjust as needed
+        temperature: Number(temperature.value), // Adjust as needed
         n: 1 // Number of completions to generate
       })
     };
@@ -162,7 +170,7 @@ async function promptChatGPT(prompt, api, model) {
   return fetch(url, requestOptions)
     .then(response => response.json())
     .catch(error => {
-      console.error('Error:', error);
+      console.error(label.error.message, error);
       return null;
     });
 }
@@ -275,6 +283,8 @@ function changeLanguage(label){
 			case "floatingTextarea":
 				labels[i].textContent = label.floatingTextarea.message;
 				break;
+      case "customRange3":
+        labels[i].textContent = label.temperature.message + temperature.value;
 			default:
 				break
 		}

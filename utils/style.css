@@ -164,6 +164,10 @@ body {
     color: rgb(240, 111, 27);
 }
 
+.input-group{
+    margin-bottom: 10px;
+}
+
 .input-group .saveBtn:focus{
     background-color: rgb(242, 112, 27)
 }

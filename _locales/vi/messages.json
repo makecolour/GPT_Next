@@ -74,6 +74,11 @@
         "message": "Hỏi",
         "description": "Popup"
     },
+    "temperature":
+    {
+        "message": "Mức độ chặt chẽ: ",
+        "description": "Popup"
+    },
     "floatingTextarea":
     {
         "message": "Phản hồi mới nhất",
