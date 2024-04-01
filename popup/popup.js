@@ -12,7 +12,6 @@ const clear = document.getElementById("clearButton");
 const show = document.getElementById("togglePassword");
 const temperature = document.getElementById("customRange3");
 const label={};
-var clipboard;
 
 temperature.addEventListener("mousemove", () => {
   setToStorage('TEMP', temperature.value);

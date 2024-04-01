@@ -20,6 +20,10 @@ body {
     cursor: default
 }
 
+#customRange3::-webkit-slider-thumb {
+    background-color: rgb(242, 112, 27) !important;
+}
+
 .title {
     font-size: 45px;
     font-weight: 800;
@@ -213,4 +217,7 @@ body {
 
 .form-floating {
     margin: 0.5em 0;
+}
+.dropdown-item{
+    cursor: pointer;
 }
