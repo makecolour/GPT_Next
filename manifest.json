@@ -19,11 +19,7 @@
 		}
 	],
     "permissions": [
-        "storage",
-		"contextMenus",
-		"declarativeContent",
-        "activeTab",
-		"tabs"
+        "storage"
     ],
 	"background": {
 		"service_worker": "./service/service-worker.js"
