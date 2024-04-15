@@ -134,8 +134,8 @@ const main = async () => {
   console.log(response);
   return response;
 }
-
-main().then(response => {
+window.addEventListener('load', () => {
+  main().then(response => {
   const ans = document.getElementsByClassName("w-md-editor-text-input")[0];
 
   if(response.error)
@@ -164,6 +164,7 @@ main().then(response => {
       ans.value = label.success.message;
     }
   }
+});
 });
 
 
