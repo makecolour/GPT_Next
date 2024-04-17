@@ -1,4 +1,4 @@
-var o = {}
+var o = {};
 chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason == "install") {
       if(chrome.i18n.getUILanguage()=="vi"){
