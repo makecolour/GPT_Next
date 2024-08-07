@@ -4,7 +4,6 @@ const label = {};
 var temp;
 
 async function getTxt() {
-  
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       for (let i = 0; i < document.getElementsByClassName("css-1id89ip").length; i++) {
